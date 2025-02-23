@@ -8,18 +8,13 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-string s;
-cin >> s;
-vector<int> mp(10,0);
-for(auto c : s){
-mp[c - '0']++;
+int n,m;
+cin >> n >> m;
+if(n == m){
+    cout << fixed << setprecision(10) << 1.0 / n << nl;
+}else{
+    cout << fixed << setprecision(10) << 1.0 / (m + 1) << nl;
 }
-for(int i = 0;i < 10;i++){
-    if(mp[i]){
-        cout << i << ":" << mp[i] << nl;
-    }
-}
-
 }
 
 

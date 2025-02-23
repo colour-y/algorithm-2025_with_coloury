@@ -1,0 +1,1 @@
+{"name":"Local: 薪得体会","url":"e:\\存\\algorithm-2025_with_coloury\\2025\\牛客寒假6\\薪得体会.cpp","tests":[{"id":1740241096355,"input":"3\n2\n10 1\n1 10\n2\n11 1\n1 10\n2\n100 1\n1 10","output":"11\n11\n100"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\存\\algorithm-2025_with_coloury\\2025\\牛客寒假6\\薪得体会.cpp","group":"local","local":true}

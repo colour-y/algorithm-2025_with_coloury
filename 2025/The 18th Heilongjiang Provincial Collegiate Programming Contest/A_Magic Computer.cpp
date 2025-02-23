@@ -7,19 +7,23 @@ using i64 = unsigned long long;
 using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
-void solve(){
-string s;
-cin >> s;
-vector<int> mp(10,0);
-for(auto c : s){
-mp[c - '0']++;
-}
-for(int i = 0;i < 10;i++){
-    if(mp[i]){
-        cout << i << ":" << mp[i] << nl;
-    }
-}
+const int MOD = 998244353;
 
+i64 power(i64 a, i64 b, i64 p) {
+    i64 res = 1;
+    for (; b; b /= 2, a = i128(a) * a % p) {
+    if (b % 2) {
+    res = i128(res) * a % p;
+    }
+    }
+    return res;
+    }
+    //a的b次方除余p
+    
+void solve(){
+    int n;
+    cin  >> n;
+cout << power(2,n - 1,MOD) << nl;
 }
 
 
