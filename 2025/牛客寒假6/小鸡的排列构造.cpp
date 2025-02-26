@@ -10,13 +10,27 @@ using u128 = unsigned __int128;
 void solve(){
 int n,m;
 cin >> n >> m;
-int ok = 1;
+int x,y;
 for(int i = 0;i < m;i++){
-    int x,y,z;
-    cin >> x >> y >> z;
-
+  int z;
+  cin >> x >> y >> z;
 }
-
+if((y - x) % 2)
+{
+  for(int i = n;i > 0;i--){
+    cout << i << " ";
+  }
+  cout << nl;
+}else{
+  for (int i = 1; i <= n; i += 2) {
+    if (i < n) {
+      cout << n - i << " " << n - i + 1 << " ";
+    } else {
+      cout << "1 ";
+    }
+  }
+  cout << nl;
+}
 }
 
 
