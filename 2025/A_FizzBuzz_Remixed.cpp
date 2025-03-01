@@ -8,17 +8,24 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int a[101] = {0};
-for(int i = 0;i < 100;i++){
-    cout << a[i] << " ";
-}
+ll n;
+cin >> n;
+ll ans = 0;
+ans += n / 15 * 3;
+ll k = n % 15;
+k++;
+if(k > 3) k = 3;
+ans += k;
+
+cout << ans << nl;
+
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-
+cin >> t;
 while(t--){
     solve();
 }

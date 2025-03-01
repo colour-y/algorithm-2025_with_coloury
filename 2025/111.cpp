@@ -7,20 +7,29 @@ using i64 = unsigned long long;
 using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
-void solve(){
-int a[101] = {0};
-for(int i = 0;i < 100;i++){
-    cout << a[i] << " ";
+void solve(int n){
+
+vector<int> a(n);
+map<int,int> mp;
+for(auto &k : a)
+{
+    cin >> k;
+    mp[k]++;
+    if(mp[k] == 1){
+      cout << k << " ";
+    }
 }
+
+
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
-int t = 1;
 
-while(t--){
-    solve();
-}
+int n;
+while(cin >> n)
+    solve(n);
+
     return 0;
 }

@@ -10,19 +10,12 @@ using i128 = unsigned __int128;
 void solve(){
 ll n,k;
 cin >> n >> k;
-if(n == 1){
-    cout << k << nl;
-}else if(n == 2){
-    cout << k << " " << k << nl;
-
-}else{
-    cout << k << " ";
-    for(int i = 0;i < n - 2;i++){
-        cout << 0 << " ";
-    }
-    cout << k << nl;
-     
+n--;
+for(int i = 0;i <= n;i++){
+    if((n & i) == i) cout << k << " ";
+    else cout << 0 << " ";
 }
+cout << nl;
 }
 
 

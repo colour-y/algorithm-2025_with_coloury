@@ -8,17 +8,28 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int a[101] = {0};
-for(int i = 0;i < 100;i++){
-    cout << a[i] << " ";
+string s,t;
+cin >> s >> t;
+int ans = t.size();
+for(int i = 0;i < t.size();i++){
+    int k = i;
+    for(int j = 0;j < s.size();j++){
+        if(k < t.size() && s[j] == t[k]){
+            k++;
+        }
+    }
+    ans = min(ans,i + int(t.size()) - k);
+
+    
 }
+cout << ans + s.size() << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-
+cin >> t;
 while(t--){
     solve();
 }
