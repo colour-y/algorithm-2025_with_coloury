@@ -7,19 +7,16 @@ using i64 = unsigned long long;
 using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
-void solve(){
-  string s;
-  cin >> s;
-for(int i =0 ;i < s.size();i++){
+int dx[4] = {1,}
+  void solve(){
 
-}
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-
+cin >> t;
 while(t--){
     solve();
 }

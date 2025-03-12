@@ -8,18 +8,19 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-  string s;
-  cin >> s;
-for(int i =0 ;i < s.size();i++){
-
-}
+    ll a,b;
+    cin >> a >> b;
+    
+   
+int v = gcd(a,b);
+cout << (1ll*a*b-1ll*v*(a/v)*(b/v))/2+1ll*((a/v)*(b/v)+1)/2*v << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-
+// cin >> t;
 while(t--){
     solve();
 }

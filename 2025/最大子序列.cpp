@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+const char nl = '\n';
+  typedef long long ll;
+  typedef long double ld;
+using i64 = unsigned long long;
+using i32 = unsigned;
+using i128 = unsigned __int128;
+  #define all(x) (x).begin(), (x).end()
+void solve(){
+string s;
+cin >> s;
+map<char,int> mp;
+for (auto e : s){
+    mp[e]++;
+}
+string ans;
+vector<int> c(26);
+for(auto e : s )
+{
+    
+    if(ans.empty()){
+        ans.push_back(e);
+        c[e - 'a'] = 1;
+        mp[e]--;
+        continue;
+       
+    }
+
+while( !ans.empty() &&ans.back() < e && !c[e - 'a'] && mp[ans.back()]){
+char k = ans.back();
+
+c[k - 'a'] = 0;
+ans.pop_back();
+
+}
+
+if(!c[e - 'a']){
+     ans.push_back(e);
+c[e - 'a'] = 1;
+    }
+mp[e]--;
+}
+cout << ans << nl;
+}
+
+
+int main(){
+ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+int t = 1;
+// cin >> t;
+while(t--){
+    solve();
+}
+    return 0;
+}

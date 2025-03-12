@@ -8,10 +8,12 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-  string s;
-  cin >> s;
-for(int i =0 ;i < s.size();i++){
-
+int l,r,x,y;
+cin >> l >> r >> x >> y;
+if((l + r) == (x + y) && (l == r) && (x == y)){
+    cout << "Yes" << nl;
+}else{
+    cout << "No" << nl;
 }
 }
 
@@ -19,7 +21,7 @@ for(int i =0 ;i < s.size();i++){
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-
+cin >> t;
 while(t--){
     solve();
 }
