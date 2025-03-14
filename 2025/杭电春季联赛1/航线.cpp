@@ -7,13 +7,10 @@ using i64 = unsigned long long;
 using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
+const int N =  1e5 + 5;
+ 
+vector<ll> f[4][N];
 
-  const int N = 100000;
-  const int64 INF = (1LL << 60) - 1;.
-  const int dx[4] = {0,-1,0,1};
-  const int dy[4] = {1,0,-1,0};
-
-  int t[N + 9],d[N + 9];
 void solve(){
 int n,m;
 cin >> n >> m;
@@ -26,8 +23,13 @@ for(int i = 0 ;i < n;i++ ){
 for(int i = 0 ;i < n;i++ ){
     for(int j = 0;j < m;j++){
         cin >> t[i][j];
+        f[0][i].resize(m + 1);
+        f[1][i].resize(m + 1);
+        f[2][i].resize(m + 1);
     }
 }
+
+
 
 
 }

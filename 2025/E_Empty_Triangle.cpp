@@ -7,26 +7,31 @@ using i64 = unsigned long long;
 using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
+
+  std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
 void solve(){
 int n;
 cin >> n;
-if(n == 3){
-    cout << "! 1 2 3" <<endl;
-    return; 
-}
-vector<int> a(3);
-a[0] = n;
-a[1] = 1;
-a[2] = (n + 1) / 2;
-int k;
-while(cin >> k && k != 0 && k != -1){
-    int x = rand() % 3;
-    a[x] = k;
+int i[3]{1,2,3};
 
-cout<< "? " << a[0] << ' ' << a[1] << ' '<< a[2] << endl;
+while(1)
+{
+  cout << "? " << i[0] << " " << i[1] << " " << i[2] << endl;
+  int k;
+  cin >> k ;
+  if(k == 0){
+    break;
+  }
+  int x = rng() % 3;
+  i[x] = k;
 }
-cout<< "! " << a[0] << ' ' << a[1] << ' ' << a[2] << endl;
+cout << "! " << i[0] << " " << i[1] << " " << i[2] << endl;
+
+
+
 }
+
+
 
 
 int main(){
