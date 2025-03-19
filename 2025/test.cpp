@@ -1,82 +1,72 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const char nl = '\n';
+using u64 = unsigned long long;
+using i64 = long long;
+using u32 = unsigned;
 
-int main() {
+mt19937_64 rnd(random_device{}());
+
+const int mod = 998244353;
+const int N = 1e6 + 5;
+const int M = 3e5 + 5;
+
+void solve(int tc)
+{
+	int n;
+	cin >> n;
+	
+	vector<int> a(n + 1);
+	for(int i = 1; i <= n; i++) {
+		cin >> a[i];
+	}
+	
+	vector<bool> ok(N);
+	vector<bool> ex(N);
+	
+	set<int> st;
+	
+	int L = 0;
+	
+	vector<int> prefix(n + 1);
+	for(int i = 1; i <= n; i++) {
+		if(a[i] == 0) {
+			while(L < i) {
+				ok[a[L]] = 1;
+				//cout << "!" << a[i] << '\n';
+				L += 1;
+			}
+		} else {
+			if(ok[a[i]]) {
+				st.insert(a[i]);
+			}
+		}
+		prefix[i] = st.size();
+	} 
+	
+	//cout << "@" << st.size() << '\n';
+	
+	i64 ans = 0;
+	
+	for(int i = n; i >= 4; i--) {
+		if(ex[a[i]] || a[i] == 0) continue;
+		ans += prefix[i - 1];
+		//cout << ans << '\n';
+		ex[a[i]] = 1;
+	}
+	
+	cout << ans << '\n';
+}
+
+signed main()
+{ 
 	ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
 
-	int t;
-	cin >> t;
-	if (t == 1) {
-		int k = 1;
+	int T = 1;
+	cin >> T;
 
-	}
-	char O;  //记录当前操作符
-	while (t--) {
-		string s;
-		cin >> s;
-		int n = 0, m = 0;
-		if ('a' <= s[0] && s[0] <= 'c') {
-			O = s[0];
-			cin >> n >> m;
-		}
-		else {
-			for (int i = 0; i < s.length(); i++) {
-				n *= 10;
-				n += s[i] - '0';
-			}
-			scanf("%d", &m);
-		}
-		long r;
-		if (O == 'a') {
-			r = n + m;
-			cout << n + m << nl;
-		}
-		else if (O == 'b') {
-			r = n - m;
-			printf("%d-%d=%d\n", n, m, n - m);
-		}
-		else {
-			r = n * m;
-			printf("%d*%d=%ld\n", n, m, n * m);   //10e5 * 10e5 = 10e10 ~ 2e33
-		}
-		int len = 2;
-		
-		//若是输入的两个数是0
-		if (n == 0) {
-			len++;
-		}
-		else {
-			while (n) {
-				len++;
-				n /= 10;
-			}
-		}
-		if (m == 0) {
-			len++;
-		}
-		else {
-			while (m) {
-				len++;
-				m /= 10;
-			}
-		}
-		//运算结果是负数的时候有个负号,所以也要++
-		if (r < 0) {
-			len++;
-		}
-		//当r>=0时，等于0和大于0要分开写
-		if (r == 0) {
-			len++;
-		}
-		else {
-			while (r) {
-				len++;
-				r /= 10;
-			}
-		}
-		cout << len << nl;
+	for(int tc = 1; tc <= T; tc++) {
+	   solve(tc);
 	}
 
 	return 0;
