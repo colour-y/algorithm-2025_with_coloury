@@ -30,38 +30,25 @@ using i128 = unsigned __int128;
 
 
 void solve(){
-    int n;
-    cin >> n;
-    vector<int> res;
-    if (n >= 1) res.push_back(2);
-    if (n >= 2) res.push_back(1);
-    if (n >= 3) res.push_back(3);
-    for (int i = 4; i <= n; ++i) {
-        res.push_back(i);
-    }
-    for (int i = 0; i < res.size(); ++i) {
-        if (i > 0) cout << " ";
-        cout << res[i];
-    }
-ll sum = 0;
-int k = 0;
-for(int i = 0;i < n;i++){
-sum += res[i];
-int ans = sum / (i + 1);
-if((i + 1) % 2 == 1){
-    if(sum % (i + 1) >= (i + 1) / 2 + 1){
-        ans++;
-    }
+int n;
+cin >> n;
+int p = max(1,n / 3);
+while(!isPrime(p)) p++;
 
-}else if(sum % (i + 1) >= (i + 1) / 2){
-ans++;
+int l = p,r = p;
+vector<int> a;
+a.push_back(p);
+while(l > 1 && r < n){
+    l--,r++;
+    a.push_back(l);
+    a.push_back(r);
 }
-if(isPrime(ans)) k++;
-if((k < n / 3 - 1) ) cout << k << " " << i + 1 << nl;
+for(int i = 1;i < l;i++) a.push_back(i);
+for(int i = r + 1;i <= n;i++) a.push_back(i);
+for(auto e : a){
+    cout << e << " ";
 }
-
-    
-
+cout << nl;
 }
 
 

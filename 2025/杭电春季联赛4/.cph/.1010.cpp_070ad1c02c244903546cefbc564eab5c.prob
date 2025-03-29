@@ -1,0 +1,1 @@
+{"name":"Local: 1010","url":"e:\\存\\algorithm-2025_with_coloury\\2025\\杭电春季联赛4\\1010.cpp","tests":[{"id":1743157962456,"input":"1\n5 3\n1 2 3 2 3\n3\n1 2\n1 3\n2 3","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\存\\algorithm-2025_with_coloury\\2025\\杭电春季联赛4\\1010.cpp","group":"local","local":true}
