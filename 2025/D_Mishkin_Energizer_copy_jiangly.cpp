@@ -34,19 +34,22 @@ for(int x = 0;x < 3;x++){
         continue;
     }
     int p = 1;
+    while((a[p] == x ) == (a[p - 1] == x)){
+        p++;
+    }
     while(cnt[x] > mi){
-        if(a[p] == x){
+        if (a[p] == x) {
             int y = a[p - 1];
-            a.insert(a.begin() + p,3 - x - y);
+            a.insert(a.begin() + p, 3 - x - y);
             ans.push_back(p);
-            a.insert(a.begin() + p + 1,y);
+            a.insert(a.begin() + p + 1, y);
             ans.push_back(p + 1);
             p += 2;
-        }else{
+        } else {
             int y = a[p];
-            a.insert(a.begin() + p,3 - x - y);
+            a.insert(a.begin() + p, 3 - x - y);
             ans.push_back(p);
-            a.insert(a.begin() + p,y);
+            a.insert(a.begin() + p, y);
             ans.push_back(p);
         }
         cnt[x]--;
