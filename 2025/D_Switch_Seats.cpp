@@ -10,48 +10,34 @@ using i128 = unsigned __int128;
 void solve(){
 int n;
 cin >> n;
-vector<int> a(2 * n + 1);
-for(int i = 1;i <= 2 * n;i++){
-   cin >> a[i];
-}
-a.push_back(-1);
-if(n == 1){
-    cout << 0 << nl;
-    return;
+vector<int> a(2 * n);
+for(auto &e : a){
+    cin >> e;
+    e--;
 }
 
-a[0] = -2;
+map<pair<int,int>,vector<int>> f;
+for(int i = 1;i < 2 * n;i++){
+
+    f[minmax(a[i - 1],a[i])].push_back(i);
+
+}
+
 int ans = 0;
-map<int,int> mp,np;
-for(int i = 1;i <= 2 * n;i++){
-    int k = a[i];
-if(!mp[k]){
-    if(!(a[i + 1] == k|| a[i - 1] == k)){
-        mp[k] = a[i + 1];
-        np[k] = a[i - 1];
+for(auto [_,p] : f){
+    if(p.size() == 2){
+        if(p[1] - p[0] > 2){
+            ans++;
+        }
+        
     }
-
-}
-else{
-    int x = a[i - 1],y = a[i + 1];
-if(x == mp[k] && x != k){
-    ans++;
-}else
-if(x == np[k] && x != k){
-    ans++;
+    else if(p.size() == 3){
+        ans++;
+    }
 }
 
-if(y == mp[k] && y != k){
-    ans++;
-}else 
-if(y == np[k] && y != k){
-    ans++;
-}
 
-}
-
-}
-cout << ans  << nl;
+cout << ans << nl;
 }
 
 
