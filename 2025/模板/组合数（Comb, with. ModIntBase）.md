@@ -48,7 +48,14 @@ struct Comb
             init(2 * m);
         return _inv[m];
     }
-    Z binom(int n, int m)
+    Z A(int a, int b)
+    {
+        if (a < b or b < 0)
+            return 0;
+        return fac(a) * invfac(a - b);
+    }
+
+    Z C(int n, int m)
     {
         if (n < m || m < 0)
             return 0;
