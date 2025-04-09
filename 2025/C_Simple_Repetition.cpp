@@ -29,21 +29,40 @@ using i128 = unsigned __int128;
 
 
 void solve(){
-for(int i = 100;i < 1000;i++){
-    if(isPrime(i)){
-        cout << i << nl;
-        cout << isPrime(i * 1000 + i) << nl;
-cout << nl;
+ll x;
+cin >> x;
+int n;
+cin >> n;
+
+auto ok = isPrime(x);
+if(x == 1){
+    if(n == 2 ){
+cout << "yes" << nl;
+return;
+    }else{
+        cout << "no" << nl;
+        return;
     }
 }
 
+if(n == 1 && ok){
+    cout << "yes" << nl;
+    return;
+}
+
+if(x < 10){
+    cout << "no" << nl;
+    return;
+}
+
+cout << "no" << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }
