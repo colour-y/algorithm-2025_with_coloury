@@ -14,10 +14,11 @@ void solve(){
 int n;
 cin >> n;
 i64 ans = 1;
-if(n >= 149){
-    cout << 0 << nl;
-    return;
-}
+// if(n >= 149){
+//     cout << 0 << nl;
+//     return;
+// }
+
 auto dfs = [&](this auto&& dfs,ll k) -> void{
 
 if(k == 0 || k == 1) return;
