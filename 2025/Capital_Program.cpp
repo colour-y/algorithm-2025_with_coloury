@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+const char nl = '\n';
+  typedef long long ll;
+  typedef long double ld;
+using i64 = unsigned long long;
+using i32 = unsigned;
+using i128 = unsigned __int128;
+  #define all(x) (x).begin(), (x).end()
+void solve(){
+int n,m;
+cin >> n >> m;
+
+vector<vector<int>> adj(n + 1);
+for(int i = 1;i <= n;i++){
+    int x,y;
+    cin >> x >> y;
+    adj[x].push_back(y);
+    adj[y].push_back(x);
+}
+if(n == m){
+    cout << 0 << nl;
+    return;
+}
+vector<int> a,memo(n + 1);
+for(int i = 1;i <= n;i++){
+    if(adj[i].size() == 1) a.push_back(i);
+memo[i] = 1;
+}
+if((n - m) <= a.size()){
+    cout << 1 << nl;
+    return;
+}
+int k = 0;
+int ans = 0;
+auto dfs = [&](int x) -> void{
+
+};
+
+cout << ans << nl;
+}
+
+
+int main(){
+ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+int t = 1;
+cin >> t;
+while(t--){
+    solve();
+}
+    return 0;
+}

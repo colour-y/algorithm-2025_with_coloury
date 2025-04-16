@@ -1,5 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
+
+#ifdef LOCAL
+#include "debug.h"
+#else
+#define deb(...) 114514
+#endif
+
 const char nl = '\n';
   typedef long long ll;
   typedef long double ld;
@@ -27,12 +34,50 @@ if(sum[n] <= x){
     return;
 }
 
-auto check = [&](int len) -> auto{
-    deque<int> que;
-    for(int i = 0;i < len;i++){
-        
+auto check = [&](int len) -> bool {
+        deque<int> que;
+        for (int i = 0; i < len; i++) {
+            while (que.size() && a[i] >= a[que.back()]) {
+                que.pop_back();
+            }
+            que.push_back(i);
+        }
+        for (int l = 0, r = len; r <= n; l++, r++) {
+            ll res = 0;
+            if (l != 0) {
+                res += abs(a[l - 1] - a[que.front()]);
+                res += sum[l - 1];
+            }
+            if (r < n) {
+                res += abs(a[r] - a[que.front()]);
+                res += sum[n] - sum[r];
+            }
+            if (res <= x)
+                return true;
+            if (que.front() == l) {
+                que.pop_front();
+            }
+            if (r < n) {
+                while (que.size() && a[r] >= a[que.back()]) {
+                    que.pop_back();
+                }
+                que.push_back(r);
+            }
+        }
+        return false;
+    };
+  deb(check(n));
+int l = 2,r = n;
+while(l < r){
+    int mid = (l + r) >> 1;
+    if(check(mid)){
+        r = mid;
+    }else{
+        l = mid + 1;
     }
 }
+cout << l << nl;
+
 
 }
 
