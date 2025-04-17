@@ -13,26 +13,21 @@ void solve(){
   vector<int> a(n);
   for (auto &k : a) cin >> k;
 
-
-  vector<vector<array<int, 2>>> adj(n); 
-
-  for (int i = 0; i < m; i++) {
-      int x, y, z;
-      cin >> x >> y >> z;
-      adj[x].push_back({y, z});  
-adj[y].push_back({x,z});
+  vector<vector<int>> adj(n);
+  map<pair<int,int>,int> mp;
+  for(int i = 0;i < m;i++){
+    int x,y,z;
+    cin >> x >> y >> z;
+    if(x > y) swap(x,y);
+    adj[x].push_back(x);
+    adj[y].push_back(y);
+    mp[{x,y}] = z;
   }
-auto dfs = [&](this auto&& dfs ,int x,int y,int ans,int k) -> int{
-if(!k){
-  return 0;
-}
-if(x == y){
-  return ans;
-}
+vector<int> ans;
+  auto dfs = [&](this auto&& dfs,int x,int y,int ans) -> int {
+    if
+  };
 
-
-return ans;
-};
 }
 
 
