@@ -13,7 +13,7 @@ int n;
 cin >> n;
 vector e(n + 1,vector<int>());
 ll sum = 0;
-map<int,map<int,ll>> mp;
+unordered_map<int, std::unordered_map<int, ll>> mp;
 for(int i = 0;i < n - 1;i++){
     int u,v,p,q;
     cin >> u >> v >> p >> q;
