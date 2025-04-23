@@ -8,8 +8,8 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 
-  vector<ll> minp, primes;
-  void sieve(ll n)
+  vector<int> minp, primes;
+  void sieve(int n)
   {
       minp.assign(n + 1, 0);
       primes.clear();
@@ -38,7 +38,8 @@ using i128 = unsigned __int128;
   
 
 void solve(){
-cout << INT_MAX << nl;
+int N = 100;
+
 }
 
 
