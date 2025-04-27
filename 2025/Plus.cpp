@@ -38,7 +38,10 @@ using i128 = unsigned __int128;
   
 
 void solve(){
-cout << INT_MAX << nl;
+int n;
+cin >> n;
+vector<set<int>> st(n);
+st[0].insert(st[1]);
 }
 
 
