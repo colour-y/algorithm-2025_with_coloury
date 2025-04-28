@@ -36,14 +36,53 @@ void sieve(ll n)
 
 
 void solve(){
-cout << primes.size() << nl;
+int n;
+cin >> n;
+vector<ll> a(n);
+for(auto &e : a){
+    cin >> e;
+}
+
+ranges::sort(a);
+ll k = reduce(all(a),0LL);
+
+
+int i = 0,m = 0;
+while(k >= 0){
+k -= primes[i++];
+m++;
+if(m >= n && k >= 0){
+    cout << 0 << nl;
+    return;
+}
+}
+k += primes[--i];
+m--;
+if(m >= n){
+    cout << 0 << nl;
+    return;
+}
+int ans = 0;
+int j = 0;
+
+while(m < n && n > 1 ){
+    k -= a[j++];
+n--;
+ans++;
+if(k < 0){
+    m--;
+    k += primes[--i];
+}
+}
+
+cout << ans << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 sieve(7000000);
 while(t--){
     solve();

@@ -33,12 +33,12 @@ void dfs(ll x,ll tt,vector<ll>& v){
 void solve(){
     cin>>n>>m>>k;
     last=-1;flag=0;
-    vector<vector<ll>>ans(n+1,vector<ll>(m+1));
-    vector<ll>v[n+1];
-    for(ll i=1;i<=n;i++){
+    vector<vector<int>>ans(n+1,vector<int>(m+1));
+    vector<int>v[n+1];
+    for(int i=1;i<=n;i++){
        cin>>f[i].s;
        f[i].id=i;
-       for(ll j=1;j<=m;j++){
+       for(int j=1;j<=m;j++){
           cin>>ans[i][j];
           if(ans[i][j]==-1){
             f[i].u++;
@@ -48,12 +48,12 @@ void solve(){
        }
     }
     sort(f+1,f+n+1);
-    for(ll i=1;i<=n;i++){
+    for(int i=1;i<=n;i++){
         if(last==-1){
             last=f[i].s;
             tot=f[i].w;
             tot1=0;
-            for(ll i=1;i<=f[i].u;i++){
+            for(int i=1;i<=f[i].u;i++){
                 v[i].push_back(0);
             }
             continue;
@@ -63,7 +63,7 @@ void solve(){
             if(f[i].w<=tot){
                 tot1=tot;
                 tot=tot+1;
-                ll cnt=tot-f[i].w;           
+                int cnt=tot-f[i].w;           
                   if(cnt>k*f[i].u){
                     flag=1;
                     break;
@@ -75,7 +75,7 @@ void solve(){
             }else{
                 tot1=tot;
                 tot=f[i].w;
-                for(ll i=1;i<=f[i].u;i++){
+                for(int i=1;i<=f[i].u;i++){
                     v[i].push_back(0);
                 }
             }
@@ -92,9 +92,9 @@ void solve(){
         cout<<"No"<<endl;
     }else{
         cout<<"Yes"<<endl;
-        for(ll i=1;i<=n;i++){
-            ll cnt=0;
-            for(ll j=1;j<=m;j++){
+        for(int i=1;i<=n;i++){
+            int cnt=0;
+            for(int j=1;j<=m;j++){
                 if(ans[i][j]==-1){
                     ans[i][j]=v[f[i].id][cnt];
                     cnt++;
@@ -103,8 +103,8 @@ void solve(){
                 cout<<endl;
             }
         }
-        for(ll i=1;i<=n;i++){
-            for(ll j=1;j<=m;j++){
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
                 cout<<ans[i][j]<<' ';
             }
             cout<<endl;
