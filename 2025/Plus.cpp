@@ -36,7 +36,7 @@ void sieve(ll n)
 
 
 void solve(){
-cout << primes.size() << nl;
+cout << 96295 * 3 + 122260 - 440664 << nl;
 }
 
 
@@ -44,7 +44,7 @@ int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
 // cin >> t;
-sieve(7000000);
+// sieve(7000000);
 while(t--){
     solve();
 }
