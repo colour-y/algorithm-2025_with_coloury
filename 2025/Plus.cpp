@@ -36,7 +36,8 @@ void sieve(ll n)
 
 
 void solve(){
-cout << 96295 * 3 + 122260 - 440664 << nl;
+vector<int> a(5,2); 
+cout << a.p << nl;
 }
 
 
