@@ -34,17 +34,31 @@ void sieve(ll n)
     }
 }
 
+i64 power(i64 a, i64 b)
+{
+    i64 res = 1;
+    for (; b; b /= 2, a = i128(a) * a)
+    {
+        if (b % 2)
+        {
+            res = i128(res) * a;
+        }
+    }
+    return res;
+}
+
+
+
 
 void solve(){
-vector<int> a(5,2); 
-cout << a.p << nl;
+cout << gcd(gcd(365788422120542814 ,182894211060271407),731576844241085628 ) << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 // sieve(7000000);
 while(t--){
     solve();
