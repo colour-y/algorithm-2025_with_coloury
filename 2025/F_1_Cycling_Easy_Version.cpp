@@ -7,48 +7,37 @@ using i64 = unsigned long long;
 using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
-  using T = tuple<ll, int, vector<int>>; 
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int t;
     cin >> t;
-
     while (t--) {
         int n;
         cin >> n;
-        vector<int> a(n);
-        for (auto &x : a) cin >> x;
+        vector<long long> a(n), val(n), ok(n);
 
-        set<pair<int, vector<int>>> ok;
-        priority_queue<T, vector<T>, greater<>> pq;
-        pq.emplace(0, n, a); 
-
-        while (!pq.empty()) {
-            auto [c, d, e] = pq.top();
-            pq.pop();
-
-            if (d == 0) {
-                cout << c << nl;
-                break;
-            }
-
-            if (!ok.insert({d, e}).second) continue;
-
-    
-            pq.emplace(c + e[d - 1], d - 1, e);
+        for (int i = 0; i < n; ++i) {
+            cin >> a[i];
+            val[i] = a[i] + (i + 1);
+        }
 
      
-            for (int i = 0; i < n; ++i)
-                for (int j = i + 1; j < n; ++j) {
-                    auto b = e;
-                    swap(b[i], b[j]);
-                    if (ok.count({d, b})) continue;
-                    pq.emplace(c + (j - i), d, b);
-                }
+        ok[n - 1] = val[n - 1];
+        for (int i = n - 2; i >= 0; --i) {
+            ok[i] = min(val[i], ok[i + 1]);
         }
+
+
+        long long res = 0;
+        for (int i = 0; i < n; ++i) {
+            int e = i + 1;
+            res += ok[i] - e;
+        }
+
+        cout << res << '\n';
     }
+
     return 0;
 }
