@@ -8,10 +8,17 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int n ,q;
-cin >> n >> q;
-vector<int> e(3001);
-
+    ll a, b;
+    cin >> a >> b;
+    ll e = a + 4*b;
+    ll S = sqrt(e);
+    if (S*S != e) {
+        cout << "NO" << nl;;
+        return;
+    }
+    ll k = S / 2;
+    if (b <= k*k) cout << "YES" << nl;
+    else cout << "NO" << nl;
 }
 
 

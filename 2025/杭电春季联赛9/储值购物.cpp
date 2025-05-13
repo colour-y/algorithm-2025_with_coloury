@@ -8,10 +8,29 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int n ,q;
-cin >> n >> q;
-vector<int> e(3001);
+int n,k;
+cin >> n >> k;
+if(k == 1){
+    cout << n << nl;
+    return;
+}
+if(n <= k){
+    cout << 1 << nl;
+    return;
+}
+int ans = 0;
+if(k % 2 == 0){
+    n -= k / 2;
+    ans++;
+    ans += (n / ((k / 2) + 1) );
+}
+else{
+    ans += (n / ((k / 2) + 1));
+}
 
+
+
+cout << ans << nl;
 }
 
 

@@ -8,9 +8,23 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int n ,q;
-cin >> n >> q;
-vector<int> e(3001);
+    int n,m;
+    cin >> n >> m;
+    if(min(n,m) >= 3){
+        cout << 0 << nl;
+        return;
+    }
+
+    if(min(n,m) == 1){
+        int e = max(m,n);
+        if(e == 1){
+            cout << 4 << nl;
+        }
+        else if(e == 2){
+            cout << 12 << nl;
+        }else cout << 24 << nl;
+        return;
+    }
 
 }
 

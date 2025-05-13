@@ -8,9 +8,13 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int n ,q;
-cin >> n >> q;
-vector<int> e(3001);
+int n,m,p,q;
+cin >> n >> m >> p >> q;
+if(n % p == 0 && n / p * q != m){
+    cout << "NO" << nl;
+    return;
+}
+cout << "YES" << nl;
 
 }
 

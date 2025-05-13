@@ -8,10 +8,32 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int n ,q;
-cin >> n >> q;
-vector<int> e(3001);
+int n;
+cin >> n;
+vector<int> a(n);
+for(auto &e : a)
+{
+    cin >> e;
+e = abs(e);
+}
+int x = 0;
+for(int i = 1;i < n;i++)
+{
+if(a[i] > a[0]){
+    x++;
+}
+}
 
+if(n % 2 == 0 && x == n / 2 - 1){
+    cout << "YES" << nl;
+    return;
+}
+
+if(x >= n / 2){
+    cout << "YES" << nl;
+    return; 
+}
+else cout << "NO" << nl;
 }
 
 

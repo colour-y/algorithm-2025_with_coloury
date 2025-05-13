@@ -8,10 +8,19 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 void solve(){
-int n ,q;
-cin >> n >> q;
-vector<int> e(3001);
+string a,b;
+cin >> a >> b;
+set<char> st = {'a','e','i','o','u'};
+auto cph = [&](auto s) -> int{
+int res = 0;
+for(int i = 0;i < s.size();i++){
+if(st.find(s[i]) != st.end()) res++;
+else if(i && s[i] == s[i - 1] && (i == s.size() - 1|| s[i] != s[i + 1])) res++;
 
+}
+return res;
+};
+cout << cph(a) << " " << cph(b) << nl;
 }
 
 
