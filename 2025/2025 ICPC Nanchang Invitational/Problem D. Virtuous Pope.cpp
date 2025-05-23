@@ -13,6 +13,7 @@ int n;
 ll a,b,c;
 cin >> n >> a >> b >> c;
 map<ll,ll> mx,my,mz;
+
 for(int i = 0 ;i < n;i++){
     ll x1,y1,z1,x2,y2,z2;
     cin >> x1 >> y1 >> z1 >> x2 >> y2 >> z2;
@@ -21,7 +22,7 @@ for(int i = 0 ;i < n;i++){
     if(z2 < z1) swap(z2,z1);
     mx[x1]++;
     mx[x2 + 1]--;
-    my[y2]++;
+    my[y1]++;
     my[y2 + 1]--;
     mz[z1]++;
     mz[z2 + 1]--;
@@ -29,22 +30,24 @@ for(int i = 0 ;i < n;i++){
 
 ll mxmi = 0;
 ll res = 0;
+
 for(auto [x,y] : mx){
     res += y;
-}
     mxmi = max(res,mxmi);
+}
 
 res = 0;
 for(auto [x,y] : my){
     res += y;
-}
     mxmi = max(res,mxmi);
+
+}
 
 res = 0;
 for(auto [x,y] : mz){
     res += y;
-}
     mxmi = max(res,mxmi);
+}
 
 cout << mxmi << nl;
 }
