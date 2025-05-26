@@ -1,6 +1,3 @@
-固定开始格式
-
-```c++
 #include<bits/stdc++.h>
 using namespace std;
 const char nl = '\n';
@@ -13,6 +10,29 @@ using i128 = unsigned __int128;
 
 void solve()
 {
+    int n,k;
+    cin >> n >> k;
+string s;
+cin >> s;
+int a = 0,b = 0;
+for(auto c : s){
+    if(c == '1') a++;
+    else b++;
+}
+if(b < a) swap(a,b);
+int c = (b - a) / 2;
+int d = a / 2 + b / 2;
+if(k >= c && k <= d){
+  if((k - c) % 2 == 1){
+    cout << "no" << nl;
+    
+  }else{
+    cout << "yes" << nl;
+  }
+
+}else{
+    cout << "no" << nl;
+}
 
 }
 
@@ -27,4 +47,3 @@ while(t--){
     return 0;
 }
 
-```

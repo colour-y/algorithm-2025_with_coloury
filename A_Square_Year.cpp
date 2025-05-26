@@ -1,6 +1,3 @@
-固定开始格式
-
-```c++
 #include<bits/stdc++.h>
 using namespace std;
 const char nl = '\n';
@@ -13,7 +10,17 @@ using i128 = unsigned __int128;
 
 void solve()
 {
+    int n;
+    cin >> n;
+    int k = sqrt(n);
+    if(k * k != n)
+    {
+        cout << -1 << nl;
+    }
 
+    else{
+        cout << 0 << " " << k << nl;
+    }
 }
 
 
@@ -26,5 +33,3 @@ while(t--){
 }
     return 0;
 }
-
-```
