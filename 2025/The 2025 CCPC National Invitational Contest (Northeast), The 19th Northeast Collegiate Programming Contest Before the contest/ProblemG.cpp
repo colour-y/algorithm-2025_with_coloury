@@ -10,6 +10,26 @@ using i128 = unsigned __int128;
 
 void solve()
 {
+int n,k;
+cin >> n >> k;
+map<int,int> mp;
+for(int i = 0;i < k;i++){
+    int x,y;
+    cin >> x >> y;
+    mp[x]++;
+    mp[y]++;
+}
+
+vector<int> e;
+for(auto [x,y] : mp){
+    if(y % 2 == 1){
+        e.push_back(x);
+    }
+}
+cout << e.size() / 2 << nl;
+for(int i = 0;i < e.size();i += 2){
+    cout << e[i] << " " << e[i + 1] << nl;
+}
 
 }
 
@@ -17,7 +37,7 @@ void solve()
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-cin >> t;
+// cin >> t;
 while(t--){
     solve();
 }
