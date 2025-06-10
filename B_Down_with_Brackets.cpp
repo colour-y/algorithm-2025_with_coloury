@@ -10,14 +10,28 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+string s;
+cin >> s;
+int k = 0;
+for(int i = 0 ;i < s.size();i++){
+    if(s[i] == '('){
+        k++;
+    }else{
+        k--;
+    }
+    if(i != s.size() - 1 && k == 0){
+        cout << "YES" << nl;
+        return;
+    }
+}
+cout << "NO" << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }

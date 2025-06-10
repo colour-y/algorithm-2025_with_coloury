@@ -10,14 +10,35 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int n;
+cin >> n;
+if(n == 4){
+    cout << -1 << nl;
+    return;
+}
+if(n == 2){
+    cout << 1 << " " << 2 << nl ;
+    return;
+}
+
+
+cout << 1 << " " << 2 << nl;
+for(int i = 2;i <= n - 1;i += 2){
+    cout << i << ' ' << i + 1 << nl;
+  if(i == 2) continue;
+  cout << i << " " << i - 2 << nl;
+
+}
+if(n % 2 == 0){
+    cout << n << " " << n - 1 << nl;
+}
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }

@@ -10,14 +10,37 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int n,m;
+cin >> n >> m;
+vector<int> f(n + 1);
+f[1] = 1;
+f[2] = 2;
+
+for(int i = 3;i <= n;i++){
+    f[i] = f[i - 2] + f[i - 1];
+}
+int k = f[n];
+int c = f[n - 1];
+while(m--){
+int x,y,h;
+cin >> x >> y >> h;
+if(x >= k && y >= k && h >= k && (x >= k + c || y >= k + c || h >= k + c)){
+cout << 1;
+}
+else{
+    cout << 0;
+}
+}
+// cout << nl;
+// cout << f[n] ;
+cout << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }

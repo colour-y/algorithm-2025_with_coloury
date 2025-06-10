@@ -10,14 +10,36 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int n;
+cin >> n;
+vector<int> a(n);
+for(auto &e : a)
+{
+    cin >> e;
+}
+
+if(count(all(a),1) == n){
+     cout << "YES" << nl;
+        return;
+} 
+
+
+
+for(int i = 1;i < n;i++){
+    if(a[i - 1] == 0 && a[i] == 0){
+        cout << "YES" << nl;
+        return;
+    }
+}
+
+     cout << "NO" << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }

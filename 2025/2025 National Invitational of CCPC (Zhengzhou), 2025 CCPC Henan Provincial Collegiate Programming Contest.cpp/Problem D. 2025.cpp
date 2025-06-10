@@ -10,7 +10,27 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int n;
+cin >> n;
+int k = sqrt(n);
+if(k * k != n){
+    cout << "No" << nl;
+    return;
+}
+
+k = 0;
+while(n){
+    k += n % 10;
+    n /= 10;
+}
+
+int e = sqrt(k);
+if(e * e != k){
+     cout << "No" << nl;
+    return;
+}
+
+ cout << "Yes" << nl;
 }
 
 

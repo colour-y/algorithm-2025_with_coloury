@@ -10,14 +10,30 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int n;
+cin >> n;
+if(n == 1){
+    cout << 3 << nl;
+    return;
+}
+
+if(n % 2){
+    n--;
+}
+int k = 0;
+while(n){
+    n /= 2;
+    k++;
+}
+
+cout << k * 2 + 1<< nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }

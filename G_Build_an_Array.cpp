@@ -8,38 +8,45 @@ using i32 = unsigned;
 using i128 = unsigned __int128;
   #define all(x) (x).begin(), (x).end()
 
+
+int get(int a,int b)
+{
+    int la = a & -a;
+    int lb = b & -b;
+    if(a / la != b / lb || a < b){
+        return la;
+    }
+    return la - 2 * lb + 1;
+}
+
 void solve()
 {
 int n,k;
 cin >> n >> k;
-vector<ll> a(n);
-for(auto &e : a){
-    cin >> e;
-}
-
-auto cph = [&](ll x) ->int{
-ll m = 2;
-ll res = 1;
-while(1){
-    if(x % m == 0) m *= 2,res++;
-    else return res;
-}
-};
-
-int l = n,r = 0;
+vector<int> a(n);
 for(int i = 0;i < n;i++){
-    if(a[i] % 2 == 1) r++;
-    else{
-r += cph(a[i]);
+    cin >> a[i];
+}
+
+vector<ll> pre(n),suf(n);
+for(int i = 1;i < n;i++){
+    pre[i] = pre[i - 1] + get(a[i - 1],a[i]);
+}
+
+for(int i = n - 2;i >= 0;i--)
+{
+    suf[i] = suf[i + 1] + get(a[i + 1],a[i]);
+}
+for(int i = 0;i < n;i++){
+    if(pre[i] + (a[i] & -a[i]) + suf[i] >= k)
+    {
+        cout << "YES" << nl;
+        return;
     }
 }
-if(k >= l && k <= r){
-    cout << "yes" << nl;
-}else{
-    cout << "no" << nl;
-}
-cout << l << " " << r << nl;
-cout << cph(96) << nl;
+cout << "NO" << nl;
+// cout << l << " " << r << nl;
+// cout << cph(96) << nl;
 }
 
 

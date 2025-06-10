@@ -10,14 +10,22 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int a,b,c,d;
+cin >> a >> b >> c >> d;
+a = min(a,c);
+b = min(b,d);
+if(a >= b){
+    cout << "Gellyfish" << nl;
+}else{
+    cout << "Flower" << nl;
+}
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }

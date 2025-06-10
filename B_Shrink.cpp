@@ -10,14 +10,19 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int n;
+cin >> n;
+for(int i = 2;i <= n;i++){
+    cout << i << " ";
+}
+cout << 1 << nl;
 }
 
 
 int main(){
 ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
 int t = 1;
-// cin >> t;
+cin >> t;
 while(t--){
     solve();
 }

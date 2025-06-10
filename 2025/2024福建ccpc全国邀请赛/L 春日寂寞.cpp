@@ -10,7 +10,18 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+ll n,t;
+cin >> n >> t;
+vector<ll> a(n);
+for(auto &e : a){
+    cin >> e;
+}
+
+sort(all(a),greater());
+ll ans = 0;
+for(int i = 0;i < n;i++){
+
+}
 }
 
 

@@ -10,7 +10,20 @@ using i128 = unsigned __int128;
 
 void solve()
 {
-cout << -1 % 3 << nl;
+int n;
+cin >> n;
+set<string> st;
+for(int i = 0 ;i < n;i++){
+    string s;
+    cin >> s;
+    reverse(all(s));
+    string q;
+    for(auto c : s){
+        q += c;
+        st.insert(q);
+    }
+}
+cout << st.size() << nl;
 }
 
 
